@@ -11,6 +11,7 @@ const data = [
     likes: 45,
     category: "Drink",
     neighborhood: "Murray Hill",
+    neighborhood_param: "murray-hill",
     promotion: false,
   },
   {
@@ -25,6 +26,7 @@ const data = [
     likes: 90,
     category: "Bottomless",
     neighborhood: "Murray Hill",
+    neighborhood_param: "murray-hill",
     promotion: true,
   },
   {
@@ -39,6 +41,7 @@ const data = [
     likes: 32,
     category: "Happy Hour",
     neighborhood: "Murray Hill",
+    neighborhood_param: "murray-hill",
     promotion: false,
   },
   {
@@ -53,6 +56,7 @@ const data = [
     likes: 80,
     category: "Drink",
     neighborhood: "Flatiron District",
+    neighborhood_param: "flatiron",
     promotion: false,
   },
   {
@@ -67,6 +71,7 @@ const data = [
     likes: 90,
     category: "Drinks",
     neighborhood: "Flatiron District",
+    neighborhood_param: "flatiron",
     promotion: false,
   },
   {
@@ -81,6 +86,7 @@ const data = [
     likes: 232,
     category: "Lunch Special",
     neighborhood: "Flatiron District",
+    neighborhood_param: "flatiron",
     promotion: true,
   },
 ];
