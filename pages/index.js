@@ -6,16 +6,12 @@ export default function App() {
   return (
     <Layout home>
       <div className="home">
-        <button className="button-link">
-          <Link href="/neighborhood/murray-hill">
-            <a>Murray Hill</a>
-          </Link>
-        </button>
-        <button className="button-link">
-          <Link href="/neighborhood/flatiron">
-            <a>Flatiron District</a>
-          </Link>
-        </button>
+        <Link href="/neighborhood/murray-hill">
+          <button className="button-link murray">Murray Hill</button>
+        </Link>
+        <Link href="/neighborhood/flatiron">
+          <button className="button-link flatiron">Flatiron District</button>
+        </Link>
       </div>
     </Layout>
   );

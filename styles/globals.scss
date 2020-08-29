@@ -165,7 +165,7 @@ body {
     text-decoration: none;
   }
   a:hover {
-    color: blue;
+    color: gray;
   }
 }
 
@@ -174,9 +174,30 @@ body {
   flex-direction: column;
   margin-top: 5vh;
   .button-link {
-    background-color: cornflowerblue;
     margin: 5vh 5vw 5vh 5vw;
-    padding: 5vh;
+    border: none;
+    width: 40vw;
+    height: 30vh;
+    color: whitesmoke;
+    font-size: 30px;
+    align-self: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 40px;
+    box-shadow: 5px 5px 2px #888888;
+    transition: all ease-in-out .6s;
+  }
+  .button-link:focus {
+    outline: none;
+  }
+  .button-link:hover {
+    transform: scale(1.05);
+  }
+  .flatiron {
+    background-image: radial-gradient(rgb(135, 135, 160), #60e1f8);
+  }
+  .murray {
+    background-image: radial-gradient(#af4261, #f3ec78);
   }
 }
 
