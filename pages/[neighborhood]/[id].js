@@ -1,10 +1,17 @@
 import Layout from "../../components/layout";
-import { useRouter } from "next/router";
+import data from "../../components/data";
 
-export default function Deal(props) {
+export default function Deal({ data }) {
   return (
     <Layout>
-      <h1>{props.id}</h1>
+      <div>
+        <h1>{data.category}</h1>
+        <a href={`${data.website}`}>
+          <h1>{data.establishment}</h1>
+        </a>
+        <img src={data.image} alt={`${data.establishment} photo`}></img>
+        <p>{data.deal}</p>
+      </div>
     </Layout>
   );
 }
@@ -56,9 +63,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const id = params.id;
+  const dataId = data.filter((item) => item.id === Number(id));
   return {
     props: {
       id,
+      data: dataId[0],
     },
   };
 }
