@@ -2,7 +2,6 @@ import Layout from "../../components/layout";
 import data from "../../components/data";
 
 export default function Deal({ data }) {
-  console.log(process.env.API_KEY);
   return (
     <Layout>
       <div className="deal-page">
