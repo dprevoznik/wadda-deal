@@ -1,6 +1,5 @@
 import Layout from "../../components/layout";
 import data from "../../components/data";
-// import API_KEY from "../../api.config";
 
 export default function Deal({ data }) {
   console.log(process.env.API_KEY);
@@ -16,7 +15,7 @@ export default function Deal({ data }) {
         <h1 className="map-title">Location</h1>
         <iframe
           src={`https://www.google.com/maps/embed/v1/place?key=${
-            process.env.API_KEY || API_KEY
+            process.env.API_KEY
           }
             &zoom=16&q="${
               data.establishment.replace("&", "").split(" ").join("+") +
