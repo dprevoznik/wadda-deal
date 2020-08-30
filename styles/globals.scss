@@ -169,6 +169,20 @@ html {
   }
 }
 
+.layout-back {
+  background-color: lightblue;
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+
+.layout-back-button {
+  border: none;
+  background-color: inherit;
+  font-size: 2em;
+}
+
 .layout-title {
   font-size: 80px;
   text-align: center;
@@ -238,13 +252,16 @@ html {
     bottom: 0px;
     left: 0px;
     opacity: 0.75;
-    opacity: 0.7;
+    opacity: 0.5;
     background-size: cover;
   }
-  .establishment{
+  .establishment {
     position: relative;
     font-size: 50px;
     font-weight: bold;
+    color: black;
+    margin-left: 5vw;
+    margin-right: 5vw;
   }
   .category {
     position: relative;
@@ -259,5 +276,53 @@ html {
     position: relative;
     overflow-y: scroll;
     margin: 5%;
+  }
+}
+
+.deal-page {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  margin-bottom: 5vh;
+  .establishment {
+    font-size: 100%;
+    font-weight: bold;
+    color: black;
+  }
+  .category {
+    font-size: 3rem;
+    font-weight: bold;
+    color: whitesmoke;
+    margin-top: 10px;
+    padding: 20px;
+    background-color: orangered;
+  }
+  .deal {
+    margin-top: 50px;
+    margin-right: 20px;
+    margin-left: 20px;
+    padding: 10px 5px 10px 5px;
+    font-size: 35px;
+    box-shadow: inset 0 0 5px #888888;
+  }
+  .map-title {
+    margin: 50px 0 10px 0;
+    font-size: 3em;
+    font-weight: bold;
+    color: black;
+  }
+  img {
+    height: min(50vh, 400px);
+    width: min(100%, 400px);
+    box-shadow: 2px 10px 7px #888888;
+    border-radius: 10px;
+    align-self: center;
+  }
+  iframe {
+    box-shadow: 2px 10px 7px #888888;
+    width: 100%;
+    height: 60vh;
   }
 }

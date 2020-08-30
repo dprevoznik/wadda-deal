@@ -9,9 +9,9 @@ export default function Layout({ children, home }) {
       </div>
       {children}
       {!home && (
-        <div>
+        <div className="layout-back">
           <Link href="/">
-            <a>← Back to home</a>
+            <button className="layout-back-button">{"⬅ Home"}</button>
           </Link>
         </div>
       )}

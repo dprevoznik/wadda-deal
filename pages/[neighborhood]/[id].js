@@ -1,16 +1,32 @@
 import Layout from "../../components/layout";
 import data from "../../components/data";
+import API_KEY from "../../api.config";
 
 export default function Deal({ data }) {
+  console.log(process.env.API_KEY);
   return (
     <Layout>
-      <div>
-        <h1>{data.category}</h1>
+      <div className="deal-page">
+        <h1 className="category">{data.category}</h1>
         <a href={`${data.website}`}>
-          <h1>{data.establishment}</h1>
+          <h1 className="establishment">{data.establishment}</h1>
         </a>
         <img src={data.image} alt={`${data.establishment} photo`}></img>
-        <p>{data.deal}</p>
+        <p className="deal">{data.deal}</p>
+        <h1 className="map-title">Location</h1>
+        <iframe
+          src={`https://www.google.com/maps/embed/v1/place?key=${
+            process.env.API_KEY || API_KEY
+          }
+            &zoom=16&q="${
+              data.establishment.replace("&", "").split(" ").join("+") +
+              "+" +
+              data.address.replace("&", "").split(" ").join("+")
+            }"`}
+          allowFullScreen=""
+          aria-hidden="false"
+          tabIndex="0"
+        ></iframe>
       </div>
     </Layout>
   );
