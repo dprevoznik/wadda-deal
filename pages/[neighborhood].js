@@ -1,5 +1,5 @@
-import List from "../../components/list";
-import Layout from "../../components/layout";
+import List from "../components/list";
+import Layout from "../components/layout";
 
 export default function NeighborhoodList({ neighborhood_param }) {
   return (
@@ -13,12 +13,12 @@ export async function getStaticPaths() {
   const paths = [
     {
       params: {
-        id: "flatiron",
+        neighborhood: "murray-hill",
       },
     },
     {
       params: {
-        id: "murray-hill",
+        neighborhood: "flatiron",
       },
     },
   ];
@@ -29,7 +29,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const neighborhood_param = params.id;
+  const neighborhood_param = params.neighborhood;
   return {
     props: {
       neighborhood_param,
