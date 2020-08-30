@@ -13,6 +13,7 @@ const data = [
     neighborhood: "Murray Hill",
     neighborhood_param: "murray-hill",
     promotion: false,
+    id: 1,
   },
   {
     establishment: "The Flying Cock NYC",
@@ -28,6 +29,7 @@ const data = [
     neighborhood: "Murray Hill",
     neighborhood_param: "murray-hill",
     promotion: true,
+    id: 2,
   },
   {
     establishment: "Home Base Bistro",
@@ -43,6 +45,7 @@ const data = [
     neighborhood: "Murray Hill",
     neighborhood_param: "murray-hill",
     promotion: false,
+    id: 3,
   },
   {
     establishment: "Hog Pit NYC",
@@ -58,6 +61,7 @@ const data = [
     neighborhood: "Flatiron District",
     neighborhood_param: "flatiron",
     promotion: false,
+    id: 4,
   },
   {
     establishment: "Crompton Ale House",
@@ -73,6 +77,7 @@ const data = [
     neighborhood: "Flatiron District",
     neighborhood_param: "flatiron",
     promotion: false,
+    id: 5,
   },
   {
     establishment: "Flatiron Hall NYC",
@@ -88,6 +93,7 @@ const data = [
     neighborhood: "Flatiron District",
     neighborhood_param: "flatiron",
     promotion: true,
+    id: 6,
   },
 ];
 export default data;
