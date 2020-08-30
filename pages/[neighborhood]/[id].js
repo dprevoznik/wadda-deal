@@ -1,7 +1,7 @@
 import Layout from "../../components/layout";
 import data from "../../components/data";
 
-export default function Deal({ data }) {
+export default function Deal({ data, mapKey }) {
   return (
     <Layout>
       <div className="deal-page">
@@ -13,14 +13,12 @@ export default function Deal({ data }) {
         <p className="deal">{data.deal}</p>
         <h1 className="map-title">Location</h1>
         <iframe
-          src={`https://www.google.com/maps/embed/v1/place?key=${
-            process.env.API_KEY
-          }
-            &zoom=16&q="${
-              data.establishment.replace("&", "").split(" ").join("+") +
-              "+" +
-              data.address.replace("&", "").split(" ").join("+")
-            }"`}
+          src={`https://www.google.com/maps/embed/v1/place?key=${mapKey}
+    &zoom=16&q="${
+      data.establishment.replace("&", "").split(" ").join("+") +
+      "+" +
+      data.address.replace("&", "").split(" ").join("+")
+    }"`}
           allowFullScreen=""
           aria-hidden="false"
           tabIndex="0"
@@ -78,10 +76,12 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const id = params.id;
   const dataId = data.filter((item) => item.id === Number(id));
+  const mapKey = process.env.API_KEY;
   return {
     props: {
       id,
       data: dataId[0],
+      mapKey,
     },
   };
 }
