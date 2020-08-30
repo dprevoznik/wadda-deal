@@ -300,6 +300,8 @@ html {
     background-color: orangered;
   }
   .deal {
+    max-height: 35vh;
+    overflow-y: scroll;
     margin-top: 50px;
     margin-right: 20px;
     margin-left: 20px;
