@@ -1,16 +1,28 @@
 import Layout from "../../components/layout";
 import data from "../../components/data";
 
-export default function Deal({ data }) {
+export default function Deal({ data, mapKey }) {
   return (
     <Layout>
-      <div>
-        <h1>{data.category}</h1>
+      <div className="deal-page">
+        <h1 className="category">{data.category}</h1>
         <a href={`${data.website}`}>
-          <h1>{data.establishment}</h1>
+          <h1 className="establishment">{data.establishment}</h1>
         </a>
         <img src={data.image} alt={`${data.establishment} photo`}></img>
-        <p>{data.deal}</p>
+        <p className="deal">{data.deal}</p>
+        <h1 className="map-title">Location</h1>
+        <iframe
+          src={`https://www.google.com/maps/embed/v1/place?key=${mapKey}
+    &zoom=16&q="${
+      data.establishment.replace("&", "").split(" ").join("+") +
+      "+" +
+      data.address.replace("&", "").split(" ").join("+")
+    }"`}
+          allowFullScreen=""
+          aria-hidden="false"
+          tabIndex="0"
+        ></iframe>
       </div>
     </Layout>
   );
@@ -64,10 +76,12 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const id = params.id;
   const dataId = data.filter((item) => item.id === Number(id));
+  const mapKey = process.env.API_KEY;
   return {
     props: {
       id,
       data: dataId[0],
+      mapKey,
     },
   };
 }
