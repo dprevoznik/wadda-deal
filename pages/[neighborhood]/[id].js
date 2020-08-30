@@ -1,6 +1,6 @@
 import Layout from "../../components/layout";
 import data from "../../components/data";
-import API_KEY from "../../api.config";
+// import API_KEY from "../../api.config";
 
 export default function Deal({ data }) {
   console.log(process.env.API_KEY);
