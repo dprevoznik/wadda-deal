@@ -12,6 +12,9 @@ export default function App() {
         <Link href="/[neighborhood]" as="/flatiron">
           <button className="button-link flatiron">Flatiron District</button>
         </Link>
+        <Link href="/submit">
+          <button className="button-link submit">Submit Deal</button>
+        </Link>
       </div>
     </Layout>
   );
