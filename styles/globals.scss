@@ -358,7 +358,7 @@ html {
   button {
     text-align: center;
     text-align-last: center;
-    font-size: 1rem;
+    font-size: 1.5rem;
     height: 5vh;
     width: 60vw;
     align-self: center;
@@ -369,7 +369,7 @@ html {
   option {
     border: 0px;
     border-bottom: 2px solid darkgray;
-    transition: border-bottom ease-out .2s;
+    transition: border-bottom ease-out 0.2s;
   }
 
   input:focus,
@@ -379,6 +379,11 @@ html {
   }
   button {
     height: 7.5vh;
-    background-color: transparent;
+    background-color: lightblue;
+    border-radius: 1rem;
+    box-shadow: 1px 5px 10px #888888;
+  }
+  button:focus {
+    outline: none;
   }
 }
