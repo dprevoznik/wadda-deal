@@ -4,6 +4,9 @@ import Layout from "../components/layout";
 export default function NeighborhoodList({ neighborhood_param }) {
   return (
     <Layout>
+      <title>
+        {neighborhood_param === "murray-hill" ? "Murray Hill" : "Flatiron District"}
+      </title>
       <List neighborhood_param={neighborhood_param} />
     </Layout>
   );

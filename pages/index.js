@@ -5,6 +5,7 @@ import Layout from "../components/layout";
 export default function App() {
   return (
     <Layout home>
+      <title>Home</title>
       <div className="home">
         <Link href="/[neighborhood]" as="/murray-hill">
           <button className="button-link murray">Murray Hill</button>

@@ -4,6 +4,7 @@ import data from "../../components/data";
 export default function Deal({ data, mapKey }) {
   return (
     <Layout>
+      <title>{`${data.establishment} | ${data.deal}`}</title>
       <div className="deal-page">
         <h1 className="category">{data.category}</h1>
         <a href={`${data.website}`}>

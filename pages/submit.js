@@ -12,6 +12,7 @@ export default function Submit() {
 
   return (
     <Layout>
+      <title>Submit</title>
       <div className="submit-page">
         <h1>Submission</h1>
         <h3>Establishment</h3>{" "}
