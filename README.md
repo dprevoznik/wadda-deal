@@ -1,3 +1,9 @@
+## Overview
+
+Follow us as we build [here](https://wadda-deal.vercel.app/) using Vercel's CI/CD system. Note: The application has mobile-first optimization.
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
