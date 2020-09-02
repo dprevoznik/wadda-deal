@@ -1,10 +1,14 @@
 import Layout from "../../components/layout";
 import data from "../../components/data";
+import Head from "next/head";
 
 export default function Deal({ data, mapKey }) {
   return (
     <Layout>
-      <title>{`${data.establishment} | ${data.deal}`}</title>
+      <Head>
+        <title>{`${data.establishment} | ${data.deal}`}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <div className="deal-page">
         <h1 className="category">{data.category}</h1>
         <a href={`${data.website}`}>
