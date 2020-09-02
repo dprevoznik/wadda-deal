@@ -26,9 +26,9 @@ export async function getStaticPaths() {
   const pathURLs = [];
 
   for (let deal of Data) {
-    if (!unique.hasOwnProperty(deal.neighborhood)) {
-      unique.add(deal.neighborhood);
-      pathURLs.push(deal.neighborhood);
+    if (!unique.has(deal.neighborhood_param)) {
+      unique.add(deal.neighborhood_param);
+      pathURLs.push(deal.neighborhood_param);
     }
   }
 
