@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Layout from "../components/layout";
 import Head from "next/head";
+import firebase, { storage } from "../firebase";
 
 export default function Submit() {
   let [establishment, setEstablishment] = useState("");
@@ -10,6 +11,44 @@ export default function Submit() {
   let [deal, setDeal] = useState("");
   let [category, setCategory] = useState("Drink");
   let [neighborhood, setNeighborhood] = useState("Flatiron District");
+
+  let [imageAsFile, setImageAsFile] = useState("");
+
+  let handleImageAsFile = (e) => {
+    const image = e.target.files[0];
+    setImageAsFile((imageFile) => image);
+  };
+
+  let handleFireBaseUpload = (e) => {
+    e.preventDefault();
+    if (imageAsFile === "") {
+      console.error(`not an image, the image file is a ${typeof imageAsFile}`);
+    }
+
+    const uploadTask = storage
+      .ref(`/images/${imageAsFile.name}`)
+      .put(imageAsFile);
+
+    uploadTask.on(
+      "state_changed",
+      (snapShot) => {
+        console.log(snapShot);
+      },
+      (err) => {
+        console.log(err);
+      },
+      () => {
+        storage
+          .ref("images")
+          .child(imageAsFile.name)
+          .getDownloadURL()
+          .then((fireBaseUrl) => {
+            // once this happens, use fireBaseUrl with rest of data to save all data into a database
+            console.log("fire base url: ", fireBaseUrl);
+          });
+      }
+    );
+  };
 
   return (
     <Layout>
@@ -23,8 +62,7 @@ export default function Submit() {
         <input onChange={(e) => setEstablishment(e.target.value)}></input>
         <h3>Address</h3>
         <input onChange={(e) => setAddress(e.target.value)}></input>
-        <h3>Image</h3>{" "}
-        <input onChange={(e) => setImage(e.target.value)}></input>
+        <h3>Image</h3> <input type="file" onChange={handleImageAsFile}></input>
         <h3>Website</h3>
         <input onChange={(e) => setWebsite(e.target.value)}></input>
         <h3>Deal</h3> <input onChange={(e) => setDeal(e.target.value)}></input>
@@ -38,7 +76,7 @@ export default function Submit() {
           <option>Flatiron District</option>
           <option>Murray Hill</option>
         </select>
-        <button>Submit</button>
+        <button onClick={handleFireBaseUpload}>Submit</button>
       </div>
     </Layout>
   );
