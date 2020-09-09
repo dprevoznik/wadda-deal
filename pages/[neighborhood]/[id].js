@@ -34,44 +34,15 @@ export default function Deal({ data, mapKey }) {
 }
 
 export async function getStaticPaths() {
-  const paths = [
-    {
+  const paths = data.map((item) => {
+    return {
       params: {
-        id: "1",
-        neighborhood: "murray-hill",
+        id: String(item.id),
+        neighborhood: item.neighborhood_param,
       },
-    },
-    {
-      params: {
-        id: "2",
-        neighborhood: "murray-hill",
-      },
-    },
-    {
-      params: {
-        id: "3",
-        neighborhood: "murray-hill",
-      },
-    },
-    {
-      params: {
-        id: "4",
-        neighborhood: "flatiron",
-      },
-    },
-    {
-      params: {
-        id: "5",
-        neighborhood: "flatiron",
-      },
-    },
-    {
-      params: {
-        id: "6",
-        neighborhood: "flatiron",
-      },
-    },
-  ];
+    };
+  });
+
   return {
     paths,
     fallback: false,
