@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Layout from "../components/layout";
+import Head from "next/head";
 
 export default function Submit() {
   let [establishment, setEstablishment] = useState("");
@@ -12,7 +13,10 @@ export default function Submit() {
 
   return (
     <Layout>
-      <title>Submit</title>
+      <Head>
+        <title>Submit</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <div className="submit-page">
         <h1>Submission</h1>
         <h3>Establishment</h3>{" "}
