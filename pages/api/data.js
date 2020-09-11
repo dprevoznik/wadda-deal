@@ -1,6 +1,12 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import Deals from "../../db/deals";
 
-export default (req, res) => {
-  res.statusCode = 200
-  res.json({ name: 'John Doe' })
+export default async function fetchAllData(req, res) {
+  res.statusCode = 200;
+  try {
+    var deals = await Deals.find({});
+  } catch (err) {
+    console.log("err: ", err);
+    res.send(500);
+  }
+  res.send(deals);
 }
