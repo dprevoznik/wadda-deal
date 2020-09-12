@@ -6,7 +6,7 @@ export default function ListItem({ item }) {
   return (
     <Link
       href={"/[neighborhood]/[id]"}
-      as={`/${item.neighborhood_param}/${item.id}`}
+      as={`/${item.neighborhood_param}/${item._id}`}
     >
       <div className="list-item">
         <div
