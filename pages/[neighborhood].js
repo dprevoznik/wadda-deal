@@ -1,35 +1,28 @@
 import List from "../components/list";
 import Layout from "../components/layout";
 import Head from "next/head";
-import Data from "../components/data";
+import Deals from "../db/deals";
 
-export default function NeighborhoodList({ neighborhood_param }) {
+export default function NeighborhoodList({ neighborhood_param, data }) {
+  let title =
+    neighborhood_param === "murray-hill" ? "Murray Hill" : "Flatiron District";
   return (
     <Layout>
       <Head>
-        <title>
-          {" "}
-          {neighborhood_param === "murray-hill"
-            ? "Murray Hill"
-            : "Flatiron District"}
-        </title>
+        <title> {title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <title></title>
-      <List neighborhood_param={neighborhood_param} />
+      <List title={title} data={data} />
     </Layout>
   );
 }
 
 export async function getStaticPaths() {
-  const unique = new Set();
-  const pathURLs = [];
-
-  for (let deal of Data) {
-    if (!unique.has(deal.neighborhood_param)) {
-      unique.add(deal.neighborhood_param);
-      pathURLs.push(deal.neighborhood_param);
-    }
+  try {
+    var pathURLs = await Deals.find({}).distinct("neighborhood_param");
+  } catch (err) {
+    console.log("err: ", err);
+    return { params: {} };
   }
 
   const paths = pathURLs.map((url) => {
@@ -48,9 +41,17 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const neighborhood_param = params.neighborhood;
+  try {
+    var neighborhoodData = await Deals.find({ neighborhood_param });
+  } catch (err) {
+    console.log("err: ", err);
+    neighborhoodData = [];
+  }
+
   return {
     props: {
       neighborhood_param,
+      data: JSON.parse(JSON.stringify(neighborhoodData)),
     },
   };
 }

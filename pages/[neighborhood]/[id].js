@@ -1,5 +1,5 @@
 import Layout from "../../components/layout";
-import data from "../../components/data";
+import Deals from "../../db/deals";
 import Head from "next/head";
 
 export default function Deal({ data, mapKey }) {
@@ -34,10 +34,12 @@ export default function Deal({ data, mapKey }) {
 }
 
 export async function getStaticPaths() {
-  const paths = data.map((item) => {
+  let allData = await Deals.find({});
+
+  const paths = allData.map((item) => {
     return {
       params: {
-        id: String(item.id),
+        id: String(item._id),
         neighborhood: item.neighborhood_param,
       },
     };
@@ -50,13 +52,14 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+  let allData = await Deals.find({_id: params.id});
   const id = params.id;
-  const dataId = data.filter((item) => item.id === Number(id));
+  const data = JSON.parse(JSON.stringify(allData[0]));
   const mapKey = process.env.API_KEY;
   return {
     props: {
       id,
-      data: dataId[0],
+      data,
       mapKey,
     },
   };
