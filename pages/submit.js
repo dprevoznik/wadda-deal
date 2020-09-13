@@ -8,17 +8,15 @@ import axios from "axios";
 export default function Submit() {
   let [establishment, setEstablishment] = useState("");
   let [address, setAddress] = useState("");
-  let [image, setImage] = useState("");
   let [website, setWebsite] = useState("");
   let [deal, setDeal] = useState("");
   let [category, setCategory] = useState("Drink");
   let [neighborhood, setNeighborhood] = useState("Flatiron District");
-
   let [imageAsFile, setImageAsFile] = useState("");
 
   const handleImageAsFile = (e) => {
     const image = e.target.files[0];
-    setImageAsFile((imageFile) => image);
+    setImageAsFile(image);
   };
 
   const handleFireBaseUpload = (e) => {
@@ -53,7 +51,6 @@ export default function Submit() {
               deal,
               category,
               verified: false,
-              category,
               neighborhood,
               neighborhood_param: formatNeighborhood(neighborhood),
               promotion: false,
@@ -72,8 +69,8 @@ export default function Submit() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div className="submit-page">
-        <h1>Submission</h1>
-        <h3>Establishment</h3>{" "}
+        <h1>Submit</h1>
+        <h3>Establishment</h3>
         <input onChange={(e) => setEstablishment(e.target.value)}></input>
         <h3>Address</h3>
         <input onChange={(e) => setAddress(e.target.value)}></input>
@@ -91,7 +88,15 @@ export default function Submit() {
           <option>Flatiron District</option>
           <option>Murray Hill</option>
         </select>
-        <button onClick={handleFireBaseUpload}>Submit</button>
+        {establishment &&
+          address &&
+          imageAsFile &&
+          website &&
+          deal &&
+          category &&
+          neighborhood && (
+            <button onClick={handleFireBaseUpload}>Submit</button>
+          )}
       </div>
     </Layout>
   );
