@@ -2,6 +2,7 @@ import { useState } from "react";
 import Layout from "../components/layout";
 import Head from "next/head";
 import { storage } from "../firebase";
+import formatNeighborhood from "../helpers/formatNeighborhood";
 import axios from "axios";
 
 export default function Submit() {
@@ -94,11 +95,4 @@ export default function Submit() {
       </div>
     </Layout>
   );
-}
-
-function formatNeighborhood(str) {
-  let lowercase = str.toLowerCase();
-  let splitLowercase = lowercase.split(" ");
-  let joinLowercase = splitLowercase.join("-");
-  return joinLowercase;
 }
