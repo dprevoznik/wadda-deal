@@ -1,7 +1,7 @@
 import ListItem from "./listItem";
 
 export default function List({ title, data }) {
-  let mapped = data.map((item) => <ListItem item={item} />);
+  let mapped = data.map((item) => <ListItem item={item} key={item._id} />);
   return (
     <div>
       {" "}
