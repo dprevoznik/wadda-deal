@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Layout from "../components/layout";
 import Head from "next/head";
-import firebase, { storage } from "../firebase";
+import { storage } from "../firebase";
+import axios from "axios";
 
 export default function Submit() {
   let [establishment, setEstablishment] = useState("");
@@ -14,17 +15,17 @@ export default function Submit() {
 
   let [imageAsFile, setImageAsFile] = useState("");
 
-  let handleImageAsFile = (e) => {
+  const handleImageAsFile = (e) => {
     const image = e.target.files[0];
     setImageAsFile((imageFile) => image);
   };
 
-  let handleFireBaseUpload = (e) => {
+  const handleFireBaseUpload = (e) => {
     e.preventDefault();
     if (imageAsFile === "") {
       console.error(`not an image, the image file is a ${typeof imageAsFile}`);
     }
-
+    
     const uploadTask = storage
       .ref(`/images/${imageAsFile.name}`)
       .put(imageAsFile);
@@ -43,11 +44,11 @@ export default function Submit() {
           .child(imageAsFile.name)
           .getDownloadURL()
           .then((fireBaseUrl) => {
-            // once this happens, use fireBaseUrl with rest of data to save all data into a database
             console.log("fire base url: ", fireBaseUrl);
           });
       }
     );
+    
   };
 
   return (
