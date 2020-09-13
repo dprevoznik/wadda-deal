@@ -25,7 +25,7 @@ export default function Submit() {
     if (imageAsFile === "") {
       console.error(`not an image, the image file is a ${typeof imageAsFile}`);
     }
-    
+
     const uploadTask = storage
       .ref(`/images/${imageAsFile.name}`)
       .put(imageAsFile);
@@ -44,11 +44,24 @@ export default function Submit() {
           .child(imageAsFile.name)
           .getDownloadURL()
           .then((fireBaseUrl) => {
-            console.log("fire base url: ", fireBaseUrl);
-          });
+            return axios.post("/api/submit", {
+              establishment,
+              address,
+              image: fireBaseUrl,
+              website,
+              deal,
+              category,
+              verified: false,
+              category,
+              neighborhood,
+              neighborhood_param: formatNeighborhood(neighborhood),
+              promotion: false,
+            });
+          })
+          .then((result) => console.log(result))
+          .catch((err) => console.log(err));
       }
     );
-    
   };
 
   return (
@@ -81,4 +94,11 @@ export default function Submit() {
       </div>
     </Layout>
   );
+}
+
+function formatNeighborhood(str) {
+  let lowercase = str.toLowerCase();
+  let splitLowercase = lowercase.split(" ");
+  let joinLowercase = splitLowercase.join("-");
+  return joinLowercase;
 }

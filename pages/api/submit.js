@@ -5,7 +5,9 @@ export default async function submitDeal(req, res) {
     await Deals.create(req.body);
   } catch (err) {
     console.log("err: ", err);
-    res.send(500);
+    res.status(500);
+    res.json({});
   }
-  res.send(201);
+  res.status(201);
+  res.json({});
 }
