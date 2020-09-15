@@ -184,17 +184,62 @@ html {
 }
 
 .layout-title {
-  font-size: 80px;
-  text-align: center;
-  background-image: linear-gradient(45deg, #f3ec78, #af4261);
-  background-repeat: repeat;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-background-clip: text;
-  -moz-text-fill-color: transparent;
-  text-align: center;
-  text-transform: uppercase;
-  border-bottom: rgba(0, 0, 0, 0.6) 5px solid;
+  display: flex;
+  flex-direction: column;
+  max-height: auto;
+  background-image: radial-gradient(rgb(29, 28, 28), rgb(20, 11, 11));
+  .layout-title-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    h1 {
+      font-size: 3rem;
+      margin: min(5vh, 50px) 0 min(5vh, 50px) 5%;
+      text-align: left;
+      background-image: linear-gradient(45deg, #f3ec78, #af4261);
+      background-repeat: repeat;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -moz-background-clip: text;
+      -moz-text-fill-color: transparent;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    button {
+      width: auto;
+      margin-right: min(5%, 50px);
+      font-size: 1.5rem;
+      background: transparent;
+      color: white;
+      border: none;
+      transition: all ease-in-out 1s;
+    }
+    button:focus {
+      outline: none;
+    }
+    .layout-title-header-clicked {
+      transform: rotate(90deg);
+    }
+  }
+  .layout-nav {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5%;
+    height: 0;
+    overflow: hidden;
+    -webkit-transition: all 0.7s ease-in-out;
+    -moz-transition: all 0.7s ease-in-out;
+    transition: all 0.7s ease-in-out;
+    a {
+      margin-top: 0;
+      color: whitesmoke;
+      font-size: 2rem;
+    }
+  }
+  .layout-nav-open {
+    height: 7.5vh;
+  }
+  box-shadow: 0px 0px 10px black;
 }
 
 .home {
