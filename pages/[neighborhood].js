@@ -19,7 +19,9 @@ export default function NeighborhoodList({ neighborhood_param, data }) {
 
 export async function getStaticPaths() {
   try {
-    var pathURLs = await Deals.find({}).distinct("neighborhood_param");
+    var pathURLs = await Deals.find({ verified: true }).distinct(
+      "neighborhood_param"
+    );
   } catch (err) {
     console.log("err: ", err);
     return { params: {} };
@@ -42,7 +44,10 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const neighborhood_param = params.neighborhood;
   try {
-    var neighborhoodData = await Deals.find({ neighborhood_param });
+    var neighborhoodData = await Deals.find({
+      neighborhood_param,
+      verified: true,
+    });
   } catch (err) {
     console.log("err: ", err);
     neighborhoodData = [];

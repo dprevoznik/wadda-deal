@@ -54,6 +54,7 @@ export default function Submit() {
               neighborhood,
               neighborhood_param: formatNeighborhood(neighborhood),
               promotion: false,
+              date: new Date(),
             });
           })
           .then((result) => console.log(result))
@@ -63,7 +64,7 @@ export default function Submit() {
   };
 
   return (
-    <Layout>
+    <Layout submit>
       <Head>
         <title>Submit</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />

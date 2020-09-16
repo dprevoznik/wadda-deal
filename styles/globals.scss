@@ -158,6 +158,7 @@ html {
 .layout {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   color: black;
+  position: relative;
   a {
     font-size: 35px;
     margin: 2.5vh 2.5vw 2.5vh 2.5vw;
@@ -165,6 +166,28 @@ html {
     text-decoration: none;
   }
   a:hover {
+    color: gray;
+  }
+  .layout-submit {
+    position: fixed;
+    right: 5vw;
+    top: 85vh;
+    height: 10vh;
+    width: auto;
+    padding: 0 10px 0 10px;
+    border: none;
+    box-shadow: 0px 0px 10px black;
+    border-radius: 100%;
+    text-transform: uppercase;
+    background-image: radial-gradient(rgb(175, 34, 34), rgb(112, 41, 41));
+    color: whitesmoke;
+    z-index: 5;
+    transition: color 0.4s ease-in-out;
+  }
+  .layout-submit:focus {
+    outline: none;
+  }
+  .layout-submit:hover {
     color: gray;
   }
 }
@@ -181,6 +204,10 @@ html {
   border: none;
   background-color: inherit;
   font-size: 2em;
+}
+
+.layout-back-button:focus {
+  outline: none;
 }
 
 .layout-title {
@@ -207,18 +234,19 @@ html {
     }
     button {
       width: auto;
-      margin-right: min(5%, 50px);
+      margin-right: 5%;
       font-size: 1.5rem;
       background: transparent;
       color: white;
       border: none;
-      transition: all ease-in-out 1s;
+      transition: all ease-in-out 0.6s;
     }
     button:focus {
       outline: none;
     }
     .layout-title-header-clicked {
-      transform: rotate(90deg);
+      color: gray;
+      transform: scale(1.1);
     }
   }
   .layout-nav {
