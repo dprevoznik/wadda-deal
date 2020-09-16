@@ -11,7 +11,7 @@ var dealsSchema = new mongoose.Schema({
   neighborhood: String,
   neighborhood_param: String,
   promotion: Boolean,
-  id: Number,
+  date: Date
 });
 
 module.exports = mongoose.models.Deals || db.model("Deals", dealsSchema);

@@ -34,7 +34,7 @@ export default function Deal({ data, mapKey }) {
 }
 
 export async function getStaticPaths() {
-  let allData = await Deals.find({});
+  let allData = await Deals.find({ verified: true });
 
   const paths = allData.map((item) => {
     return {
@@ -52,7 +52,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  let allData = await Deals.find({_id: params.id});
+  let allData = await Deals.find({ _id: params.id, verified: true });
   const id = params.id;
   const data = JSON.parse(JSON.stringify(allData[0]));
   const mapKey = process.env.API_KEY;

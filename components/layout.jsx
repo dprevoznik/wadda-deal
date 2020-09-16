@@ -1,18 +1,21 @@
 import Link from "next/link";
 import { useState } from "react";
-export default function Layout({ children, home }) {
+
+export default function Layout({ children, home, submit }) {
   let [nav, showNav] = useState(false);
   return (
     <div className="layout">
       <div className="layout-title-outer">
         <div className="layout-title">
           <div className="layout-title-header">
-            <h1>Wadda Deal</h1>
+            <Link href="/">
+              <h1>Wadda Deal</h1>
+            </Link>
             <button
-              className={nav && "layout-title-header-clicked"}
+              className={nav ? "layout-title-header-clicked" : undefined}
               onClick={() => showNav(!nav)}
             >
-              ☓
+              ☰
             </button>
           </div>
           <div className={`layout-nav ${nav && "layout-nav-open"}`}>
@@ -32,6 +35,11 @@ export default function Layout({ children, home }) {
             <button className="layout-back-button">{"⬅ Home"}</button>
           </Link>
         </div>
+      )}
+      {!submit && (
+        <Link href="/submit">
+          <button className="layout-submit">Submit</button>
+        </Link>
       )}
     </div>
   );

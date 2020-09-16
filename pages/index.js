@@ -19,9 +19,6 @@ export default function App({ pathURLs }) {
             </button>
           </Link>
         ))}
-        <Link href="/submit">
-          <button className="button-link submit">Submit Deal</button>
-        </Link>
       </div>
     </Layout>
   );
@@ -29,7 +26,9 @@ export default function App({ pathURLs }) {
 
 export async function getStaticProps() {
   try {
-    var pathURLs = await Deals.find({}).distinct("neighborhood_param");
+    var pathURLs = await Deals.find({ verified: true }).distinct(
+      "neighborhood_param"
+    );
   } catch (err) {
     console.log("err: ", err);
     pathURLs = [];
