@@ -239,7 +239,7 @@ html {
       background: transparent;
       color: white;
       border: none;
-      transition: all ease-in-out 0.6s;
+      transition: transform ease-in-out 0.6s;
     }
     button:focus {
       outline: none;
