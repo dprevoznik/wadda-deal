@@ -15,7 +15,7 @@ export default function App({ pathURLs }) {
         {pathURLs.map((url) => (
           <Link href="/[neighborhood]" as={`/${url}`}>
             <button className={`button-link ${url}`}>
-              {formatNeighborhoodParam(url)}
+              <span>{formatNeighborhoodParam(url)}</span>
             </button>
           </Link>
         ))}
