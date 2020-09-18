@@ -5,8 +5,9 @@ import Deals from "../db/deals";
 import formatNeighborhoodParam from "../helpers/formatNeighborhoodParam";
 
 export default function App({ pathURLs, deals }) {
+  let randomIdx = Math.floor(Math.random() * deals.length);
   return (
-    <Layout home>
+    <Layout home random={deals[randomIdx]}>
       <Head>
         <title>Home</title>
         <meta
