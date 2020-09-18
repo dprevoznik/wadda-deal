@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
-export default function Layout({ children, home, submit }) {
+export default function Layout({ children, home, submit, random }) {
   let [nav, showNav] = useState(false);
   return (
     <div className="layout">
@@ -25,6 +25,11 @@ export default function Layout({ children, home, submit }) {
             <Link href="/submit">
               <a>Submit</a>
             </Link>
+            {home && (
+              <Link href={`/${random.neighborhood_param}/${random._id}`}>
+                <a>Random</a>
+              </Link>
+            )}
           </div>
         </div>
       </div>

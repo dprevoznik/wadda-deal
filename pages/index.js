@@ -5,21 +5,18 @@ import Deals from "../db/deals";
 import formatNeighborhoodParam from "../helpers/formatNeighborhoodParam";
 
 export default function App({ pathURLs, deals }) {
+  let randomIdx = Math.floor(Math.random() * deals.length);
   return (
-    <Layout home>
+    <Layout home random={deals[randomIdx]}>
       <Head>
         <title>Home</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          name="viewport"
+          content="initial-scale=1.0, height=device-height, width=device-width, minimum-scale=1, maximum-scale=1.0, 
+          user-scalable=no, target-densitydpi=device-dpi"
+        />
       </Head>
       <div className="home">
-        <h1 className="home-title">Neighborhoods</h1>
-        {pathURLs.map((url) => (
-          <Link href="/[neighborhood]" as={`/${url}`}>
-            <button className={`button-link ${url}`}>
-              <span>{formatNeighborhoodParam(url)}</span>
-            </button>
-          </Link>
-        ))}
         <h1 className="home-deals-title">Newest Deals</h1>
         <div className="home-deals">
           {deals.map((deal) => (
@@ -34,6 +31,14 @@ export default function App({ pathURLs, deals }) {
             </Link>
           ))}
         </div>
+        <h1 className="home-title">Neighborhoods</h1>
+        {pathURLs.map((url) => (
+          <Link href="/[neighborhood]" as={`/${url}`}>
+            <button className={`button-link ${url}`}>
+              <span>{formatNeighborhoodParam(url)}</span>
+            </button>
+          </Link>
+        ))}
       </div>
     </Layout>
   );
