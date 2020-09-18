@@ -11,7 +11,8 @@ export default function App({ pathURLs, deals }) {
         <title>Home</title>
         <meta
           name="viewport"
-          content="initial-scale=1.0, width=device-width, minimum-scale=1"
+          content="initial-scale=1.0, height=device-height, width=device-width, minimum-scale=1, maximum-scale=1.0, 
+          user-scalable=no, target-densitydpi=device-dpi"
         />
       </Head>
       <div className="home">
