@@ -9,17 +9,12 @@ export default function App({ pathURLs, deals }) {
     <Layout home>
       <Head>
         <title>Home</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          name="viewport"
+          content="initial-scale=1.0, width=device-width, minimum-scale=1"
+        />
       </Head>
       <div className="home">
-        <h1 className="home-title">Neighborhoods</h1>
-        {pathURLs.map((url) => (
-          <Link href="/[neighborhood]" as={`/${url}`}>
-            <button className={`button-link ${url}`}>
-              <span>{formatNeighborhoodParam(url)}</span>
-            </button>
-          </Link>
-        ))}
         <h1 className="home-deals-title">Newest Deals</h1>
         <div className="home-deals">
           {deals.map((deal) => (
@@ -34,6 +29,14 @@ export default function App({ pathURLs, deals }) {
             </Link>
           ))}
         </div>
+        <h1 className="home-title">Neighborhoods</h1>
+        {pathURLs.map((url) => (
+          <Link href="/[neighborhood]" as={`/${url}`}>
+            <button className={`button-link ${url}`}>
+              <span>{formatNeighborhoodParam(url)}</span>
+            </button>
+          </Link>
+        ))}
       </div>
     </Layout>
   );

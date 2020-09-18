@@ -170,25 +170,26 @@ html {
   }
   .layout-submit {
     position: fixed;
-    right: 4vw;
-    top: 80vh;
-    height: 10vh;
+    right: 3vw;
+    top: 90vh;
+    height: 7.5vh;
     width: auto;
     padding: 0 10px 0 10px;
     border: none;
     box-shadow: 0px 0px 10px black;
-    border-radius: 100%;
+    border-radius: 12px;
     text-transform: uppercase;
     background-image: radial-gradient(rgb(175, 34, 34), rgb(112, 41, 41));
     color: whitesmoke;
     z-index: 5;
-    transition: color 0.4s ease-in-out;
+    transition: color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
   }
   .layout-submit:focus {
     outline: none;
   }
   .layout-submit:hover {
-    color: gray;
+    color: lightgray;
+    box-shadow: 0px 0px 20px black;
   }
 }
 
