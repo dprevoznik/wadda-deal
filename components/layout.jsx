@@ -1,17 +1,34 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Layout({ children, home, submit, random }) {
-  let [nav, showNav] = useState(false);
+  const [nav, showNav] = useState(false);
+  function handleScroll() {
+    if (
+      document.body.scrollTop > 80 ||
+      document.documentElement.scrollTop > 80
+    ) {
+      document.getElementById("title").style.fontSize = "1.75rem";
+      document.getElementById("hamburger").style.fontSize = "1.25rem";
+    } else {
+      document.getElementById("title").style.fontSize = "3rem";
+      document.getElementById("hamburger").style.fontSize = "1.5rem";
+    }
+  }
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
   return (
     <div className="layout">
       <div className="layout-title-outer">
         <div className="layout-title">
           <div className="layout-title-header">
             <Link href="/">
-              <h1>Wadda Deal</h1>
+              <h1 id="title">Wadda Deal</h1>
             </Link>
             <button
+              id="hamburger"
               className={nav ? "layout-title-header-clicked" : undefined}
               onClick={() => showNav(!nav)}
             >
