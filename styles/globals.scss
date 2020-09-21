@@ -213,6 +213,15 @@ html {
   outline: none;
 }
 
+.layout-title-outer {
+  left: 0;
+  top: 0;
+  position: sticky;
+  position: -webkit-sticky;
+  position: sticky;
+  width: 100%;
+}
+
 .layout-title {
   display: flex;
   flex-direction: column;
@@ -420,9 +429,10 @@ html {
     font-size: 2.5rem;
     font-weight: bold;
     color: whitesmoke;
-    margin-top: 10px;
+    margin-top: 2.5vh;
     padding: 20px;
     background-color: orangered;
+    width: min(100%, 400px);
   }
   .deal {
     max-height: 35vh;
