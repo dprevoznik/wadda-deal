@@ -232,7 +232,7 @@ html {
     flex-direction: row;
     justify-content: space-between;
     h1 {
-      font-size: 3rem;
+      font-size: 2.75rem;
       margin: min(5vh, 50px) 0 min(5vh, 50px) 5%;
       text-align: left;
       background-image: linear-gradient(45deg, #f3ec78, #af4261);
@@ -243,6 +243,7 @@ html {
       -moz-text-fill-color: transparent;
       text-align: center;
       text-transform: uppercase;
+      transition: font-size ease-in-out 0.6s;
     }
     button {
       width: auto;
@@ -252,6 +253,7 @@ html {
       color: white;
       border: none;
       transition: transform ease-in-out 0.6s;
+      transition: font-size ease-in-out 0.6s;
     }
     button:focus {
       outline: none;
