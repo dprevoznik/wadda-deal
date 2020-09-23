@@ -3,16 +3,16 @@ import { useState, useEffect } from "react";
 
 export default function Layout({ children, home, submit, random }) {
   const [nav, showNav] = useState(false);
+  const [fontLarge, showFontLarge] = useState(true);
+
   function handleScroll() {
-    if (
-      document.body.scrollTop > 80 ||
-      document.documentElement.scrollTop > 80
-    ) {
-      document.getElementById("title").style.fontSize = "1.75rem";
-      document.getElementById("hamburger").style.fontSize = "1.25rem";
-    } else {
-      document.getElementById("title").style.fontSize = "3rem";
-      document.getElementById("hamburger").style.fontSize = "1.5rem";
+    let title = document.querySelector("#title");
+    if (document.documentElement.scrollTop > 150 && fontLarge) {
+      title.classList.add("title-small");
+      showFontLarge(false);
+    } else if (document.documentElement.scrollTop < 50 && !fontLarge) {
+      title.classList.remove("title-small");
+      showFontLarge(true);
     }
   }
   useEffect(() => {
@@ -25,7 +25,9 @@ export default function Layout({ children, home, submit, random }) {
         <div className="layout-title">
           <div className="layout-title-header">
             <Link href="/">
-              <h1 id="title">Wadda Deal</h1>
+              <h1 id="title" className="title">
+                Wadda Deal
+              </h1>
             </Link>
             <button
               id="hamburger"
