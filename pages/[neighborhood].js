@@ -9,8 +9,12 @@ export default function NeighborhoodList({ neighborhood_param, data }) {
   return (
     <Layout>
       <Head>
-        <title> {title}</title>
+        <title>{title} | Wadda Deal</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          name="Description"
+          content={`The best bar/restaurant deals in ${title}! All listings are aggregated by Wadda Deal's New York City based community. What a deal!`}
+        />
       </Head>
       <List title={title} data={data} />
     </Layout>

@@ -17,7 +17,7 @@ export default function App({ pathURLs, deals }) {
         />
         <meta
           name="Description"
-          content="New Yorkers find the best bar/restaurant deals. We post them for all to see! Check out the latest featured deals, submit a new deal, or browse deals in a neighborhood."
+          content="New Yorkers find the best bar/restaurant deals. We post them for all to see! Check out the latest featured deals, submit a new deal, or browse deals in a neighborhood. What a deal!"
         />
         <meta name="google-site-verification" content="ecCxrWIDWGWjAiyaSMigloGqLUv8kGZcYsed6Qr-4Os" />
       </Head>
