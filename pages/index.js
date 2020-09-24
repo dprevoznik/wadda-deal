@@ -19,6 +19,7 @@ export default function App({ pathURLs, deals }) {
           name="Description"
           content="New Yorkers find the best bar/restaurant deals. We post them for all to see! Check out the latest featured deals, submit a new deal, or browse deals in a neighborhood."
         />
+        <meta name="google-site-verification" content="ecCxrWIDWGWjAiyaSMigloGqLUv8kGZcYsed6Qr-4Os" />
       </Head>
       <div className="home">
         <h1 className="home-deals-title">Newest Deals</h1>
