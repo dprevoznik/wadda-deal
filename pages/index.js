@@ -9,11 +9,15 @@ export default function App({ pathURLs, deals }) {
   return (
     <Layout home random={deals[randomIdx]}>
       <Head>
-        <title>Home</title>
+        <title>Home | Wadda Deal</title>
         <meta
           name="viewport"
           content="initial-scale=1.0, height=device-height, width=device-width, minimum-scale=1, maximum-scale=1.0, 
           user-scalable=no, target-densitydpi=device-dpi"
+        />
+        <meta
+          name="Description"
+          content="New Yorkers find the best bar/restaurant deals. We post them for all to see! Check out the latest featured deals, submit a new deal, or browse deals in a neighborhood."
         />
       </Head>
       <div className="home">
