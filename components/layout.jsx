@@ -53,13 +53,13 @@ export default function Layout({ children, home, submit, random }) {
         </div>
       </div>
       {children}
-      {!home && (
+      {/* {!home && (
         <div className="layout-back">
           <Link href="/">
             <button className="layout-back-button">{"⬅ Home"}</button>
           </Link>
         </div>
-      )}
+      )} */}
       {!submit && (
         <Link href="/submit">
           <button className="layout-submit">Submit</button>
