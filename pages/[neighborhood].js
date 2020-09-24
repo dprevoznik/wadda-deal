@@ -2,10 +2,10 @@ import List from "../components/list";
 import Layout from "../components/layout";
 import Head from "next/head";
 import Deals from "../db/deals";
+import formatNeighborhoodParam from "../helpers/formatNeighborhoodParam";
 
 export default function NeighborhoodList({ neighborhood_param, data }) {
-  let title =
-    neighborhood_param === "murray-hill" ? "Murray Hill" : "Flatiron District";
+  let title = formatNeighborhoodParam(neighborhood_param);
   return (
     <Layout>
       <Head>

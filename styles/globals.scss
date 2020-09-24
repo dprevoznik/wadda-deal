@@ -221,7 +221,7 @@ html {
   position: sticky;
   width: 100%;
   z-index: 10;
-  opacity: 0.95;
+  opacity: 0.90;
 }
 .layout-title {
   display: flex;
@@ -353,6 +353,11 @@ html {
   }
   .murray-hill {
     background: url("https://imgs.6sqft.com/wp-content/uploads/2018/09/23220009/theater-house.jpg")
+      no-repeat center bottom fixed;
+    background-size: cover;
+  }
+  .gramercy-park {
+    background: url("https://i.pinimg.com/originals/8c/53/8e/8c538ef5307e46b3cd1b342a3cfcfe34.jpg")
       no-repeat center bottom fixed;
     background-size: cover;
   }
