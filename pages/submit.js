@@ -3,9 +3,11 @@ import Layout from "../components/layout";
 import Head from "next/head";
 import { storage } from "../firebase";
 import formatNeighborhood from "../helpers/formatNeighborhood";
+import formatNeighborhoodParam from "../helpers/formatNeighborhoodParam";
+import Deals from "../db/deals";
 import axios from "axios";
 
-export default function Submit() {
+export default function Submit({ neighborhoodParams, categories }) {
   let [establishment, setEstablishment] = useState("");
   let [address, setAddress] = useState("");
   let [website, setWebsite] = useState("");
@@ -58,7 +60,7 @@ export default function Submit() {
               date: new Date(),
             });
           })
-          .then((result) => setCompleted(true))
+          .then(() => setCompleted(true))
           .catch((err) => console.log(err));
       }
     );
@@ -100,13 +102,15 @@ export default function Submit() {
           <input onChange={(e) => setDeal(e.target.value)}></input>
           <h3>Category</h3>
           <select onChange={(e) => setCategory(e.target.value)}>
-            <option>Drink</option>
-            <option>Special</option>
+            {categories.map((item) => (
+              <option>{item}</option>
+            ))}
           </select>
           <h3>Neighborhood</h3>
           <select onChange={(e) => setNeighborhood(e.target.value)}>
-            <option>Flatiron District</option>
-            <option>Murray Hill</option>
+            {neighborhoodParams.map((area) => (
+              <option>{formatNeighborhoodParam(area)}</option>
+            ))}
           </select>
           {establishment &&
             address &&
@@ -121,4 +125,24 @@ export default function Submit() {
       )}
     </Layout>
   );
+}
+
+export async function getStaticProps() {
+  let neighborhoodParams = [];
+  let categories = [];
+  try {
+    neighborhoodParams = await Deals.find({ verified: true }).distinct(
+      "neighborhood_param"
+    );
+    categories = await Deals.find({ verified: true }).distinct("category");
+  } catch {
+    neighborhoodParams = [];
+    categories = [];
+  }
+  return {
+    props: {
+      neighborhoodParams,
+      categories,
+    },
+  };
 }
