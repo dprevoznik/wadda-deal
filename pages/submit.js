@@ -69,8 +69,12 @@ export default function Submit({ neighborhoodParams, categories }) {
   return (
     <Layout submit>
       <Head>
-        <title>Submit</title>
+        <title>Submit | Wadda Deal</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          name="Description"
+          content="Submit a new deal! Recently come across a great food or drink deal in New York City? Take a picture and share it on Wadda Deal, so others can benefit too. What a deal!"
+        />
       </Head>
       {completed && (
         <div className="submit-page submit-page-success">

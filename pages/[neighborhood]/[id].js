@@ -6,8 +6,12 @@ export default function Deal({ data, mapKey }) {
   return (
     <Layout>
       <Head>
-        <title>{`${data.establishment} | ${data.deal}`}</title>
+        <title>{`${data.deal} | ${data.establishment} | Wadda Deal`}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          name="Description"
+          content={`${data.deal} - A ${data.category} deal at ${data.establishment} in the ${data.neighborhood} neighborhood of New York City. Spotted by a member of the Wadda Deal community. What a deal!`}
+        />
       </Head>
       <div className="deal-page">
         <h1 className="category">{data.category}</h1>
