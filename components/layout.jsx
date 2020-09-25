@@ -7,10 +7,10 @@ export default function Layout({ children, home, submit, random }) {
 
   function handleScroll() {
     let title = document.querySelector("#title");
-    if (document.documentElement.scrollTop > 150 && fontLarge) {
+    if (document.documentElement.scrollTop > 100 && fontLarge) {
       title.classList.add("title-small");
       showFontLarge(false);
-    } else if (document.documentElement.scrollTop < 50 && !fontLarge) {
+    } else if (document.documentElement.scrollTop === 0 && !fontLarge) {
       title.classList.remove("title-small");
       showFontLarge(true);
     }
@@ -43,6 +43,9 @@ export default function Layout({ children, home, submit, random }) {
             </Link>
             <Link href="/submit">
               <a>Submit</a>
+            </Link>
+            <Link href="/deals">
+              <a>Deals</a>
             </Link>
             {home && (
               <Link href={`/${random.neighborhood_param}/${random._id}`}>
