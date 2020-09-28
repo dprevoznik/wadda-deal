@@ -323,6 +323,7 @@ html {
     }
   }
   .button-link {
+    background-size: cover;
     margin: 5vh 5vw 5vh 5vw;
     border: none;
     width: min(60vw, 500px);
@@ -345,21 +346,6 @@ html {
   }
   .button-link:hover {
     transform: scale(1.05);
-  }
-  .flatiron-district {
-    background: url("https://www.history.com/.image/t_share/MTU3ODc5MDg3MjM2MTMwNTI3/clouds-over-flatiron-building-nyc-2.jpg")
-      no-repeat center bottom fixed;
-    background-size: cover;
-  }
-  .murray-hill {
-    background: url("https://imgs.6sqft.com/wp-content/uploads/2018/09/23220009/theater-house.jpg")
-      no-repeat center bottom fixed;
-    background-size: cover;
-  }
-  .gramercy-park {
-    background: url("https://i.pinimg.com/originals/8c/53/8e/8c538ef5307e46b3cd1b342a3cfcfe34.jpg")
-      no-repeat center bottom fixed;
-    background-size: cover;
   }
 }
 

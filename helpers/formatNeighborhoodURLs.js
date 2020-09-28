@@ -1,7 +1,9 @@
 export default function formatNeighborhoodURLs(urlArr) {
+  let urlArrParsed = JSON.parse(JSON.stringify(urlArr));
   let output = {};
-  for (let neighborObj of urlArr) {
-    output[neighborObj.neighborhood_param] = neighborObj.url;
+
+  for (let urlObj of urlArrParsed) {
+    output[urlObj.neighborhood_param] = urlObj.url;
   }
   return output;
 }

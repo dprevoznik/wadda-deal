@@ -6,7 +6,7 @@ import StockPhotos from "../db/stockPhotos";
 import formatNeighborhoodParam from "../helpers/formatNeighborhoodParam";
 import formatNeighborhoodURLs from "../helpers/formatNeighborhoodURLs";
 
-export default function App({ pathURLs, deals }) {
+export default function App({ pathURLs, deals, photosFormatted }) {
   let randomIdx = Math.floor(Math.random() * deals.length);
   return (
     <Layout home random={deals[randomIdx]}>
@@ -27,7 +27,7 @@ export default function App({ pathURLs, deals }) {
         />
       </Head>
       <div className="home">
-        <h1 className="home-deals-title">Newest Deals</h1>
+        <h1 className="home-deals-title">Hot Deals</h1>
         <div className="home-deals">
           {deals.map((deal) => (
             <Link href={`/${deal.neighborhood_param}/${deal._id}`}>
@@ -44,7 +44,7 @@ export default function App({ pathURLs, deals }) {
         <h1 className="home-title">Neighborhoods</h1>
         {pathURLs.map((url) => (
           <Link href="/[neighborhood]" as={`/${url}`}>
-            <button className={`button-link ${url}`}>
+            <button className={`button-link`} style={{background: `url(${photosFormatted[url]}) no-repeat center bottom fixed`}}>
               <span>{formatNeighborhoodParam(url)}</span>
             </button>
           </Link>
@@ -61,7 +61,6 @@ export async function getStaticProps() {
     );
     var deals = await Deals.find({ verified: true }).sort({ date: -1 });
     var photos = await StockPhotos.find();
-    console.log(formatNeighborhoodURLs(photos))
   } catch (err) {
     console.log("err: ", err);
     pathURLs = [];
