@@ -58,7 +58,7 @@ export default function Layout({ children, home, submit, random }) {
       {children}
       {!submit && (
         <Link href="/submit">
-          <button className="layout-submit">Submit</button>
+          <button className="layout-submit">New</button>
         </Link>
       )}
     </div>

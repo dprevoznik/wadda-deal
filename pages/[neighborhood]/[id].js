@@ -1,8 +1,30 @@
 import Layout from "../../components/layout";
 import Deals from "../../db/deals";
 import Head from "next/head";
+import { useState } from "react";
+import axios from "axios";
 
 export default function Deal({ data, mapKey }) {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const handleFeedbackSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post("/api/support", {
+        email,
+        text: message,
+        _id: data._id,
+        deal: data.deal,
+      })
+      .then((result) => {
+        console.log("support email successful");
+      })
+      .catch((err) => console.log("support email error"))
+      .finally(() => {
+        setEmail("");
+        setMessage("");
+      });
+  };
   return (
     <Layout>
       <Head>
@@ -20,7 +42,7 @@ export default function Deal({ data, mapKey }) {
         </a>
         <img src={data.image} alt={`${data.establishment} photo`}></img>
         <p className="deal">{data.deal}</p>
-        <h1 className="map-title">Location</h1>
+        <h1 className="section-title">Location</h1>
         <iframe
           src={`https://www.google.com/maps/embed/v1/place?key=${mapKey}
     &zoom=16&q="${
@@ -32,6 +54,33 @@ export default function Deal({ data, mapKey }) {
           aria-hidden="false"
           tabIndex="0"
         ></iframe>
+        <h1 className="section-title">Contact Us</h1>
+        <form onSubmit={handleFeedbackSubmit}>
+          <label htmlFor="email">
+            Email
+            <input
+              type="email"
+              id="email"
+              placeholder="user@gmail.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            ></input>
+          </label>
+          <label htmlFor="message">
+            Message
+            <textarea
+              id="message"
+              placeholder="Let us know how we can help!"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              cols="25"
+              rows="5"
+            ></textarea>
+          </label>
+          {email.length > 4 && message.length > 4 && (
+            <input type="submit" value="Submit Feedback" />
+          )}
+        </form>
       </div>
     </Layout>
   );
