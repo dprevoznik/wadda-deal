@@ -1,8 +1,8 @@
 import { db, mongoose } from "./index";
 
 var stockPhotosSchema = new mongoose.Schema({
-  query: String,
-  unsplash_url: String,
+  neighborhood_param: String,
+  url: String,
 });
 
 module.exports =
