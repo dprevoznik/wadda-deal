@@ -41,9 +41,6 @@ export default function Layout({ children, home, submit, random }) {
             <Link href="/">
               <a>Home</a>
             </Link>
-            <Link href="/submit">
-              <a>Submit</a>
-            </Link>
             <Link href="/deals">
               <a>Deals</a>
             </Link>
@@ -52,17 +49,13 @@ export default function Layout({ children, home, submit, random }) {
                 <a>Random</a>
               </Link>
             )}
+            <Link href="/submit">
+              <a>Submit</a>
+            </Link>
           </div>
         </div>
       </div>
       {children}
-      {/* {!home && (
-        <div className="layout-back">
-          <Link href="/">
-            <button className="layout-back-button">{"⬅ Home"}</button>
-          </Link>
-        </div>
-      )} */}
       {!submit && (
         <Link href="/submit">
           <button className="layout-submit">Submit</button>
