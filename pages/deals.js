@@ -23,7 +23,7 @@ function AllDeals({ allDeals, allNeighborhoods, allCategories }) {
   }
 
   return (
-    <Layout>
+    <Layout dealsPage>
       <Head>
         <title>Deals | Wadda Deal</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
