@@ -1,6 +1,6 @@
 ## Overview
 
-Follow us as we build [here](https://wadda-deal.vercel.app/) using Vercel's CI/CD system. Note: The application has mobile-first optimization.
+Follow us as we build at [waddadeal.com](https://waddadeal.com) using Vercel's CI/CD system. Note: The application has mobile-first optimization.
 
 
 
