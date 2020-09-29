@@ -69,7 +69,7 @@ export async function getStaticProps() {
   return {
     props: {
       pathURLs,
-      deals: JSON.parse(JSON.stringify(deals.slice(0, 3))),
+      deals: JSON.parse(JSON.stringify(deals.slice(0, 4))),
       photosFormatted: formatNeighborhoodURLs(photos),
     },
   };

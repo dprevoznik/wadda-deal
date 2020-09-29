@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
-export default function Layout({ children, home, submit, random }) {
+export default function Layout({ children, home, submit, random, dealsPage }) {
   const [nav, showNav] = useState(false);
   const [fontLarge, showFontLarge] = useState(true);
 
@@ -14,6 +14,17 @@ export default function Layout({ children, home, submit, random }) {
       title.classList.remove("title-small");
       showFontLarge(true);
     }
+  }
+  function handleNavbarClick(e) {
+    // Deals Page Relevant
+    if (dealsPage) {
+      let dealsFixed = document.querySelector(".deals-fixed");
+      // If clicked and nav is enlarged, remove class that decreases z-index
+      if (nav) dealsFixed.classList.remove("deals-fixed-back");
+      // If clicked and nav is hidden, add class that decreases z-index
+      else dealsFixed.classList.add("deals-fixed-back");
+    }
+    showNav(!nav);
   }
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -32,7 +43,7 @@ export default function Layout({ children, home, submit, random }) {
             <button
               id="hamburger"
               className={nav ? "layout-title-header-clicked" : undefined}
-              onClick={() => showNav(!nav)}
+              onClick={handleNavbarClick}
             >
               ☰
             </button>
@@ -50,7 +61,7 @@ export default function Layout({ children, home, submit, random }) {
               </Link>
             )}
             <Link href="/submit">
-              <a>Submit</a>
+              <a>New</a>
             </Link>
           </div>
         </div>

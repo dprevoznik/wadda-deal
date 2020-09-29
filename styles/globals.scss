@@ -1,3 +1,11 @@
+/* *************** */
+/* VARIABLES */
+/* *************** */
+
+$primary-color: white;
+$bg: white;
+$desktopWidthMax: 400px;
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -132,9 +140,6 @@ table {
 /* RESET ENDS HERE */
 /* *************** */
 
-$primary-color: white;
-$bg: white;
-
 html,
 body {
   height: 100%;
@@ -170,10 +175,10 @@ html {
   }
   .layout-submit {
     position: fixed;
-    right: 6vw;
-    bottom: 4vh;
+    right: min(4vw, 15px);
+    bottom: 2vh;
     height: 7.5vh;
-    width: auto;
+    width: 4rem;
     padding: 0 10px 0 10px;
     border: none;
     box-shadow: 0px 0px 10px black;
@@ -228,6 +233,7 @@ html {
   flex-direction: column;
   max-height: auto;
   background-image: radial-gradient(rgb(29, 28, 28), rgb(20, 11, 11));
+  z-index: 10;
   .layout-title-header {
     display: flex;
     flex-direction: row;
@@ -244,6 +250,7 @@ html {
       -moz-text-fill-color: transparent;
       text-align: center;
       text-transform: uppercase;
+      transition: font-size ease-in-out 0.4s;
     }
     #title.title-small {
       margin-top: 3vh;
@@ -257,8 +264,8 @@ html {
       background: transparent;
       color: white;
       border: none;
-      transition: transform ease-in-out 0.5s;
-      transition: font-size ease-in-out 0.5s;
+      transition: transform ease-in-out 0.4s;
+      transition: font-size ease-in-out 0.4s;
     }
     button:focus {
       outline: none;
@@ -270,21 +277,26 @@ html {
   }
   .layout-nav {
     display: flex;
-    flex-direction: row;
-    margin-left: 5%;
+    flex-direction: column;
     height: 0;
     overflow: hidden;
-    -webkit-transition: all 0.7s ease-in-out;
-    -moz-transition: all 0.7s ease-in-out;
-    transition: all 0.7s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
     a {
-      margin-top: 0;
+      margin: 0;
+      padding-left: 5vw;
+      padding-top: 1.5vh;
       color: whitesmoke;
-      font-size: 1.25rem;
+      font-size: 2rem;
+    }
+    a:first-of-type {
+      margin-top: 1vh;
     }
   }
   .layout-nav-open {
-    height: 7.5vh;
+    border-top: 1px solid gray;
+    height: 91vh;
   }
   box-shadow: 0px 0px 10px black;
 }
@@ -327,7 +339,7 @@ html {
     margin: 5vh 5vw 5vh 5vw;
     border: none;
     width: min(60vw, 500px);
-    height: 30vh;
+    height: min(50vh, 300px);
     font-size: 1.75rem;
     align-self: center;
     text-align: center;
@@ -367,7 +379,7 @@ html {
   position: relative;
   align-self: center;
   height: min(40vh, 400px);
-  width: min(80%, 400px);
+  width: min(80%, #{$desktopWidthMax});
   margin-bottom: 5vh;
   background-color: lightblue;
   font-size: x-large;
@@ -417,7 +429,9 @@ html {
   align-items: center;
   margin-left: 5vw;
   margin-right: 5vw;
-  margin-bottom: 5vh;
+  padding-bottom: 5vh;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
   .establishment {
     font-size: 2.5rem;
     font-weight: bold;
@@ -430,11 +444,11 @@ html {
     margin-top: 2.5vh;
     padding: 20px;
     background-color: orangered;
-    width: min(100%, 400px);
+    width: min(100%, #{$desktopWidthMax});
   }
   .deal {
     max-height: 35vh;
-    width: min(100%, 400px);
+    width: min(100%, #{$desktopWidthMax});
     overflow-y: scroll;
     margin-top: 50px;
     margin-right: 20px;
@@ -452,7 +466,7 @@ html {
   }
   img {
     height: min(50vh, 400px);
-    width: min(100%, 400px);
+    width: min(100%, #{$desktopWidthMax});
     box-shadow: 2px 10px 7px #888888;
     border-radius: 10px;
     align-self: center;
@@ -460,10 +474,10 @@ html {
   iframe {
     box-shadow: 2px 10px 7px #888888;
     height: min(50vh, 400px);
-    width: min(100%, 400px);
+    width: min(100%, #{$desktopWidthMax});
   }
   form {
-    width: min(100%, 400px);
+    width: min(100%, #{$desktopWidthMax});
     label {
       margin-top: 1.5vh;
       font-size: 1.5rem;
@@ -563,14 +577,14 @@ html {
 .submit-page-success {
   img {
     height: min(50vh, 400px);
-    width: min(90%, 400px);
+    width: min(90%, #{$desktopWidthMax});
     box-shadow: 2px 10px 7px #888888;
     border-radius: 10px;
     align-self: center;
   }
   p {
     font-size: 1.5rem;
-    width: min(90%, 400px);
+    width: min(90%, #{$desktopWidthMax});
     align-self: center;
     text-align: center;
     margin: 5vh 0 5vh 0;
@@ -584,6 +598,9 @@ html {
   position: sticky;
   top: 9%;
   z-index: 10;
+}
+.deals-fixed-back {
+  z-index: 9;
 }
 .deals-filters {
   display: flex;
