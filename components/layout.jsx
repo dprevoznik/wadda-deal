@@ -50,7 +50,7 @@ export default function Layout({ children, home, submit, random }) {
               </Link>
             )}
             <Link href="/submit">
-              <a>Submit</a>
+              <a>New</a>
             </Link>
           </div>
         </div>

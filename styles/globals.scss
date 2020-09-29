@@ -1,3 +1,11 @@
+/* *************** */
+/* VARIABLES */
+/* *************** */
+
+$primary-color: white;
+$bg: white;
+$desktopWidthMax: 400px;
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -132,10 +140,6 @@ table {
 /* RESET ENDS HERE */
 /* *************** */
 
-$primary-color: white;
-$bg: white;
-$desktopWidthMax: 400px;
-
 html,
 body {
   height: 100%;
@@ -229,6 +233,7 @@ html {
   flex-direction: column;
   max-height: auto;
   background-image: radial-gradient(rgb(29, 28, 28), rgb(20, 11, 11));
+  z-index: 10;
   .layout-title-header {
     display: flex;
     flex-direction: row;
@@ -271,21 +276,26 @@ html {
   }
   .layout-nav {
     display: flex;
-    flex-direction: row;
-    margin-left: 5%;
+    flex-direction: column;
     height: 0;
     overflow: hidden;
-    -webkit-transition: all 0.7s ease-in-out;
-    -moz-transition: all 0.7s ease-in-out;
-    transition: all 0.7s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
     a {
-      margin-top: 0;
+      margin: 0;
+      padding-left: 5vw;
+      padding-top: 1.5vh;
       color: whitesmoke;
-      font-size: 1.25rem;
+      font-size: 2rem;
+    }
+    a:first-of-type {
+      margin-top: 1vh;
     }
   }
   .layout-nav-open {
-    height: 7.5vh;
+    border-top: 1px solid gray;
+    height: 40vh;
   }
   box-shadow: 0px 0px 10px black;
 }
@@ -328,7 +338,7 @@ html {
     margin: 5vh 5vw 5vh 5vw;
     border: none;
     width: min(60vw, 500px);
-    height: 30vh;
+    height: min(50vh, 300px);
     font-size: 1.75rem;
     align-self: center;
     text-align: center;
