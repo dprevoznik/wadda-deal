@@ -134,6 +134,7 @@ table {
 
 $primary-color: white;
 $bg: white;
+$desktopWidthMax: 400px;
 
 html,
 body {
@@ -170,10 +171,10 @@ html {
   }
   .layout-submit {
     position: fixed;
-    right: 6vw;
-    bottom: 4vh;
+    right: min(4vw, 15px);
+    bottom: 2vh;
     height: 7.5vh;
-    width: auto;
+    width: 4rem;
     padding: 0 10px 0 10px;
     border: none;
     box-shadow: 0px 0px 10px black;
@@ -367,7 +368,7 @@ html {
   position: relative;
   align-self: center;
   height: min(40vh, 400px);
-  width: min(80%, 400px);
+  width: min(80%, #{$desktopWidthMax});
   margin-bottom: 5vh;
   background-color: lightblue;
   font-size: x-large;
@@ -430,11 +431,11 @@ html {
     margin-top: 2.5vh;
     padding: 20px;
     background-color: orangered;
-    width: min(100%, 400px);
+    width: min(100%, #{$desktopWidthMax});
   }
   .deal {
     max-height: 35vh;
-    width: min(100%, 400px);
+    width: min(100%, #{$desktopWidthMax});
     overflow-y: scroll;
     margin-top: 50px;
     margin-right: 20px;
@@ -452,7 +453,7 @@ html {
   }
   img {
     height: min(50vh, 400px);
-    width: min(100%, 400px);
+    width: min(100%, #{$desktopWidthMax});
     box-shadow: 2px 10px 7px #888888;
     border-radius: 10px;
     align-self: center;
@@ -460,10 +461,10 @@ html {
   iframe {
     box-shadow: 2px 10px 7px #888888;
     height: min(50vh, 400px);
-    width: min(100%, 400px);
+    width: min(100%, #{$desktopWidthMax});
   }
   form {
-    width: min(100%, 400px);
+    width: min(100%, #{$desktopWidthMax});
     label {
       margin-top: 1.5vh;
       font-size: 1.5rem;
@@ -563,14 +564,14 @@ html {
 .submit-page-success {
   img {
     height: min(50vh, 400px);
-    width: min(90%, 400px);
+    width: min(90%, #{$desktopWidthMax});
     box-shadow: 2px 10px 7px #888888;
     border-radius: 10px;
     align-self: center;
   }
   p {
     font-size: 1.5rem;
-    width: min(90%, 400px);
+    width: min(90%, #{$desktopWidthMax});
     align-self: center;
     text-align: center;
     margin: 5vh 0 5vh 0;
