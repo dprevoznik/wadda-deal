@@ -8,6 +8,7 @@ import formatNeighborhoodURLs from "../helpers/formatNeighborhoodURLs";
 
 export default function App({ pathURLs, deals, photosFormatted }) {
   let randomIdx = Math.floor(Math.random() * deals.length);
+
   return (
     <Layout home random={deals[randomIdx]}>
       <Head>
@@ -30,7 +31,10 @@ export default function App({ pathURLs, deals, photosFormatted }) {
         <h1 className="home-deals-title">Hot Deals</h1>
         <div className="home-deals">
           {deals.map((deal) => (
-            <Link href={`/${deal.neighborhood_param}/${deal._id}`}>
+            <Link
+              href={`/${deal.neighborhood_param}/${deal._id}`}
+              key={deal.neighborhood_param + "" + deal._id}
+            >
               <a>
                 "
                 {deal.deal.length > 60
@@ -43,8 +47,13 @@ export default function App({ pathURLs, deals, photosFormatted }) {
         </div>
         <h1 className="home-title">Neighborhoods</h1>
         {pathURLs.map((url) => (
-          <Link href="/[neighborhood]" as={`/${url}`}>
-            <button className={`button-link`} style={{background: `url(${photosFormatted[url]}) no-repeat center bottom fixed`}}>
+          <Link href="/[neighborhood]" as={`/${url}`} key={url}>
+            <button
+              className={`button-link`}
+              style={{
+                background: `url(${photosFormatted[url]}) no-repeat center bottom fixed`,
+              }}
+            >
               <span>{formatNeighborhoodParam(url)}</span>
             </button>
           </Link>
