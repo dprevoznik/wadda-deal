@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "axios": "^0.20.0",
     "bluebird": "^3.7.2",
     "firebase": "^7.21.1",
