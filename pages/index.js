@@ -36,11 +36,9 @@ export default function App({ pathURLs, deals, photosFormatted }) {
               key={deal.neighborhood_param + "" + deal._id}
             >
               <a>
-                "
                 {deal.deal.length > 60
                   ? deal.deal.slice(0, 60) + "..."
                   : deal.deal}
-                "
               </a>
             </Link>
           ))}
@@ -54,7 +52,7 @@ export default function App({ pathURLs, deals, photosFormatted }) {
                 background: `url(${photosFormatted[url]}) no-repeat center bottom fixed`,
               }}
             >
-              <span>{formatNeighborhoodParam(url)}</span>
+              <h2>{formatNeighborhoodParam(url)}</h2>
             </button>
           </Link>
         ))}
