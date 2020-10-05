@@ -63,9 +63,16 @@ export default function Layout({ children, home, submit, random, dealsPage }) {
             <Link href="/submit">
               <a>New</a>
             </Link>
+            <Link href="/about">
+              <a>About</a>
+            </Link>
             <Link href="https://www.instagram.com/waddadeal/">
               <a>
-                <img width="40" height="40" src="https://www.flaticon.com/svg/static/icons/svg/174/174855.svg"></img>
+                <img
+                  width="40"
+                  height="40"
+                  src="https://www.flaticon.com/svg/static/icons/svg/174/174855.svg"
+                ></img>
               </a>
             </Link>
           </div>
