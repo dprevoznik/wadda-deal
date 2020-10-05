@@ -147,11 +147,14 @@ table {
 /* RESET ENDS HERE */
 /* *************** */
 
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+
 html,
 body {
   height: 100%;
   width: 100%;
   background-color: $bg;
+  font-family: "Playfair Display", serif;
 }
 
 html {
@@ -168,7 +171,6 @@ html {
 }
 
 .layout {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   color: $titleColor;
   position: relative;
   a {
@@ -626,5 +628,31 @@ html {
   }
   select:focus {
     outline: none;
+  }
+}
+
+.about-page {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  h1 {
+    font-size: 4rem;
+    margin: 4rem;
+    margin-top: 20vh;
+  }
+  h2 {
+    font-size: 3rem;
+    margin-top: 20vh;
+    margin-bottom: 10vh;
+  }
+  span {
+    font-size: 2.5rem;
+  }
+  p {
+    font-size: 1.75rem;
+    margin: 0 15vw 0 15vw;
+  }
+  p:last-child {
+    margin-bottom: 20vh;
   }
 }
