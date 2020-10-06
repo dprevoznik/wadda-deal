@@ -5,11 +5,12 @@
 // $bg: #6ef9f5;
 $desktopWidthMax: 400px;
 $bg: #eafdf8;
+$header: #EAFDF8;
 $bgDarker: #5b9279;
 $bgDarkest: #1f100a;
 $titleColor: #39393a;
-$secondaryColor: #ff8552;
-$leadColor: #ffd447;
+$secondaryColor: #EA9010;
+$leadColor: #564787;
 $buttonPrimary: #d64933;
 $buttonSecondary: #de639a;
 $fontFamily: "Playfair Display", serif;
@@ -244,8 +245,7 @@ html {
   display: flex;
   flex-direction: column;
   max-height: auto;
-  // background-image: radial-gradient(rgb(29, 28, 28), rgb(20, 11, 11));
-  background-color: $titleColor;
+  background-color: $header;
   z-index: 10;
   .layout-title-header {
     display: flex;
@@ -253,6 +253,7 @@ html {
     justify-content: space-between;
     #title {
       font-size: 2.75rem;
+      font-weight: bold;
       margin: min(7.5vh, 75px) 0 min(7.5vh, 75px) 5%;
       text-align: left;
       background-image: linear-gradient(45deg, $leadColor, $secondaryColor);
