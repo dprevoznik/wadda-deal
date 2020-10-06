@@ -492,7 +492,7 @@ html {
     align-self: center;
   }
   iframe {
-    box-shadow: 2px 10px 7px $bgDarker;
+    box-shadow: 1px 2px 7px $bgDarker;
     height: min(50vh, 400px);
     width: min(100%, #{$desktopWidthMax});
   }
