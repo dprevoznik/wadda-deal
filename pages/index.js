@@ -7,6 +7,7 @@ import formatNeighborhoodParam from "../helpers/formatNeighborhoodParam";
 import formatNeighborhoodURLs from "../helpers/formatNeighborhoodURLs";
 
 export default function App({ pathURLs, deals, photosFormatted }) {
+  // create random index to choose
   let randomIdx = Math.floor(Math.random() * deals.length);
 
   return (
